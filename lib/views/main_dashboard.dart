@@ -17,8 +17,10 @@ class MainDashBoard extends StatefulWidget {
 
 class _MainDashBoardState extends State<MainDashBoard> {
   final ItemScrollController _itemScrollController = ItemScrollController();
-  final ItemPositionsListener itemPositionsListener = ItemPositionsListener.create();
-  final ScrollOffsetListener scrollOffsetListener = ScrollOffsetListener.create();
+  final ItemPositionsListener itemPositionsListener =
+      ItemPositionsListener.create();
+  final ScrollOffsetListener scrollOffsetListener =
+      ScrollOffsetListener.create();
   final onMenuHover = Matrix4.identity()..scale(1.0);
   final menuItems = <String>[
     'Home',
@@ -103,31 +105,35 @@ class _MainDashBoardState extends State<MainDashBoard> {
                   const Spacer(),
                   SizedBox(
                     height: 30,
-                    child: ListView.separated(
-                      itemCount: menuItems.length,
-                      shrinkWrap: true,
-                      scrollDirection: Axis.horizontal,
-                      separatorBuilder: (context, child) =>
-                          Constants.sizedBox(width: 8),
-                      itemBuilder: (context, index) {
-                        return InkWell(
-                          onTap: () {
-                            scrollTo(index: index);
-                          },
-                          borderRadius: BorderRadius.circular(100),
-                          onHover: (value) {
-                            setState(() {
-                              if (value) {
-                                menuIndex = index;
-                              } else {
-                                menuIndex = 0;
-                              }
-                            });
-                          },
-                          child: buildNavBarAnimatedContainer(
-                              index, menuIndex == index ? true : false),
-                        );
-                      },
+                    child: Scrollbar(
+                      controller: yourScrollController,
+                      child: ListView.separated(
+                        itemCount: menuItems.length,
+                        shrinkWrap: true,
+                        scrollDirection: Axis.horizontal,
+                        controller: yourScrollController,
+                        separatorBuilder: (context, child) =>
+                            Constants.sizedBox(width: 8),
+                        itemBuilder: (context, index) {
+                          return InkWell(
+                            onTap: () {
+                              scrollTo(index: index);
+                            },
+                            borderRadius: BorderRadius.circular(100),
+                            onHover: (value) {
+                              setState(() {
+                                if (value) {
+                                  menuIndex = index;
+                                } else {
+                                  menuIndex = 0;
+                                }
+                              });
+                            },
+                            child: buildNavBarAnimatedContainer(
+                                index, menuIndex == index ? true : false),
+                          );
+                        },
+                      ),
                     ),
                   ),
                   Constants.sizedBox(width: 30),

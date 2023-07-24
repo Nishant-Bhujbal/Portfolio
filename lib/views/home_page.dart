@@ -33,7 +33,7 @@ class _HomePageState extends State<HomePage> {
   ];
 
   var socialBI;
-
+  final yourScrollController = ScrollController();
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
@@ -42,7 +42,6 @@ class _HomePageState extends State<HomePage> {
         children: [
           buildHomePersonalInfo(size),
           Constants.sizedBox(height: 25.0),
-          // const ProfileAnimation()
         ],
       ),
       tablet: Row(
@@ -50,7 +49,6 @@ class _HomePageState extends State<HomePage> {
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           Expanded(child: buildHomePersonalInfo(size)),
-          // const ProfileAnimation(),
         ],
       ),
       desktop: Row(
@@ -58,7 +56,6 @@ class _HomePageState extends State<HomePage> {
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           Expanded(child: buildHomePersonalInfo(size)),
-          // const ProfileAnimation(),
         ],
       ),
       paddingWidth: size.width * 0.1,
@@ -116,11 +113,15 @@ class _HomePageState extends State<HomePage> {
         Constants.sizedBox(height: 15.0),
         FadeInDown(
           duration: const Duration(milliseconds: 1600),
-          child: Expanded(
-            child: Text(
-              'Passionate student and software developer, dedicated to building impactful applications and services that empower users.',
-              style: AppTextStyles.normalStyle(),
-            ),
+          child: Row(
+            children: [
+              Expanded(
+                child: Text(
+                  'Passionate student and software developer, dedicated to building impactful applications and services that empower users.',
+                  style: AppTextStyles.normalStyle(),
+                ),
+              ),
+            ],
           ),
         ),
         Constants.sizedBox(height: 20.0),
@@ -128,34 +129,38 @@ class _HomePageState extends State<HomePage> {
           duration: const Duration(milliseconds: 1600),
           child: SizedBox(
             height: 48,
-            child: ListView.separated(
-              itemCount: socialButtons.length,
-              shrinkWrap: true,
-              scrollDirection: Axis.horizontal,
-              separatorBuilder: (context, child) =>
-                  Constants.sizedBox(width: 8.0),
-              itemBuilder: (context, index) {
-                return InkWell(
-                  onTap: () {
-                    html.window.open(Links[index],"");
-                  },
-                  onHover: (value) {
-                    setState(() {
-                      if (value) {
-                        socialBI = index;
-                      } else {
-                        socialBI = null;
-                      }
-                    });
-                  },
-                  borderRadius: BorderRadius.circular(5.0),
-                  hoverColor: AppColors.themeColor,
-                  splashColor: AppColors.lawGreen,
-                  child: buildSocialButton(
-                      asset: socialButtons[index],
-                      hover: socialBI == index ? true : false),
-                );
-              },
+            child: Scrollbar(
+              controller: yourScrollController,
+              child: ListView.separated(
+                itemCount: socialButtons.length,
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+                controller: yourScrollController,
+                separatorBuilder: (context, child) =>
+                    Constants.sizedBox(width: 8.0),
+                itemBuilder: (context, index) {
+                  return InkWell(
+                    onTap: () {
+                      html.window.open(Links[index], "");
+                    },
+                    onHover: (value) {
+                      setState(() {
+                        if (value) {
+                          socialBI = index;
+                        } else {
+                          socialBI = null;
+                        }
+                      });
+                    },
+                    borderRadius: BorderRadius.circular(5.0),
+                    hoverColor: AppColors.themeColor,
+                    splashColor: AppColors.lawGreen,
+                    child: buildSocialButton(
+                        asset: socialButtons[index],
+                        hover: socialBI == index ? true : false),
+                  );
+                },
+              ),
             ),
           ),
         ),

@@ -22,9 +22,9 @@ class _MyPortfolioState extends State<MyPortfolio> {
   final onH0verEffect = Matrix4.identity()..scale(1.0);
 
   List images = <String>[
-    AppAssets.work2,
+    AppAssets.zchatss,
     AppAssets.recipe,
-    AppAssets.work1,
+    AppAssets.tictacss,
     AppAssets.adopt,
   ];
   List names = <String>["Z-Chat", "Recipe-Finder", "TicTacToe", "Adopt-Me"];
@@ -146,7 +146,7 @@ class _MyPortfolioState extends State<MyPortfolio> {
                         Text(
                           desc,
                           style:
-                              AppTextStyles.normalStyle(color: Colors.black87),
+                              AppTextStyles.normalStyle(color: Colors.black87,fontSize: 14),
                           textAlign: TextAlign.center,
                         ),
                         Constants.sizedBox(height: 15.0),

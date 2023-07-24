@@ -88,7 +88,7 @@ class AboutMe extends StatelessWidget {
         FadeInLeft(
           duration: const Duration(milliseconds: 1600),
           child: Text(
-            'Greetings! I am  a senior at Indian Institute of Information Technology, Kottayam, with a passion for pushing the boundaries of technology. Proficient in Flutter, React JS, and C++, I have crafted impactful projects and contributed to open-source events. I thrive on learning new tech stacks swiftly, making me a flexible and adaptive developer.',
+            'Greetings! I\'m senior at Indian Institute of Information Technology, Kottayam, with a passion for pushing the boundaries of technology. Proficient in Flutter, React JS, and C++, I have crafted impactful projects and contributed to open-source events. I thrive on learning new tech stacks swiftly, making me a flexible and adaptive developer.',
             style: AppTextStyles.normalStyle(),
           ),
         ),

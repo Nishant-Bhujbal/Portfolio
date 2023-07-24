@@ -26,4 +26,6 @@ class AppAssets {
   static String leetcode = "assets/images/leetcode.png";
   static String recipe = "assets/images/Recipe.png";
   static String adopt = "assets/images/adopt.png";
+  static String zchatss = "assets/images/zchat.jpg";
+  static String tictacss = "assets/images/tictac.jpg";
 }

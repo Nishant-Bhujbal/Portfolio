@@ -212,8 +212,8 @@ class _MyServicesState extends State<MyServices> {
     required String title,
     required String asset,
     required bool hover,
-    double width = 350,
-    double hoverWidth = 360,
+    double width = 300,
+    double hoverWidth = 310,
   }) 
   {
     return AnimatedContainer(
@@ -222,7 +222,7 @@ class _MyServicesState extends State<MyServices> {
       height: hover ? 390 : 380,
       alignment: Alignment.center,
       transform: hover ? onHoverActive : onHoverRemove,
-      padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 24),
+      padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 18),
       decoration: BoxDecoration(
         color: AppColors.bgColor2,
         borderRadius: BorderRadius.circular(30),
@@ -309,8 +309,8 @@ class _MyServicesState extends State<MyServices> {
     required String title,
     required String asset,
     required bool hover,
-    double width = 350,
-    double hoverWidth = 360,
+    double width = 300,
+    double hoverWidth = 310,
   }) 
   {
     return AnimatedContainer(
@@ -395,8 +395,8 @@ class _MyServicesState extends State<MyServices> {
     required String title,
     required String asset,
     required bool hover,
-    double width = 350,
-    double hoverWidth = 360,
+    double width = 300,
+    double hoverWidth = 310,
   }) 
   {
     return AnimatedContainer(

@@ -90,18 +90,18 @@ class _HomePageState extends State<HomePage> {
             children: [
               Text(
                 'And I\'m a ',
-                style: AppTextStyles.montserratStyle(color: Colors.white),
+                style: AppTextStyles.montserratStyle(color: Colors.white,fontSize: 20),
               ),
               AnimatedTextKit(
                 animatedTexts: [
                   TyperAnimatedText(
                     'Flutter Developer',
                     textStyle:
-                        AppTextStyles.montserratStyle(color: Colors.lightBlue),
+                        AppTextStyles.montserratStyle(color: Colors.lightBlue,fontSize: 20),
                   ),
                   TyperAnimatedText('Student',
                       textStyle: AppTextStyles.montserratStyle(
-                          color: Colors.lightBlue)),
+                          color: Colors.lightBlue,fontSize: 20)),
                 ],
                 pause: const Duration(milliseconds: 1000),
                 displayFullTextOnTap: true,
